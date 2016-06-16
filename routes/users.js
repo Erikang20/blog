@@ -46,4 +46,17 @@ router.get( '/:id', function( req, res ) {
 	} );
 } );
 
+///update users///
+router.post( '/:id', function( req, res ) {
+	var userId = req.params.id;
+	var user = req.body;
+	knex( 'users' ).where( 'id', userId ).first().update( {
+		name: user.name,
+		userName: user.nickname
+	}, 'id' ).then( function( result, err ) {
+		res.redirect( '/users' );
+	} );
+} );
+
+
 module.exports = router;
