@@ -22,7 +22,6 @@ app.use( '/users', usersRoute );
 
 
 
-
 app.listen( 3000, function() {
 	console.log( "Im listening" );
 } );

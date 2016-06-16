@@ -9,7 +9,7 @@ router.get( '/', function( req, res ) {
 	knex( 'users' ).then( function( result, err ) {
 		console.log( result );
 		res.render( 'index', {
-			users: result
+			user: result
 		} );
 	} );
 } );
@@ -33,12 +33,16 @@ router.post( '/', function( req, res ) {
 	} );
 } );
 
+
+
 router.get( '/:id', function( req, res ) {
 	var userId = req.params.id;
 
 	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
 		var user = result;
-		res.render( 'users/index' );
+		res.render( 'index', {
+			user: user
+		} );
 	} );
 } );
 
