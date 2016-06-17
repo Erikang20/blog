@@ -7,7 +7,7 @@ var methodOverride = require( 'method-override' );
 ////show homepage
 router.get( '/', function( req, res ) {
 	knex( 'users' ).select().then( function( result, err ) {
-		console.log( result );
+		// console.log( result );
 		res.render( 'index', {
 			user: result
 		} );
@@ -15,7 +15,7 @@ router.get( '/', function( req, res ) {
 } );
 
 
-//new users
+//add new users
 router.get( '/new', function( req, res ) {
 	res.render( 'new' );
 } );
@@ -27,7 +27,7 @@ router.post( '/', function( req, res ) {
 	// eval( locus )
 	knex( 'users' ).insert( {
 		name: user.name,
-		userName: user.nickname
+		userName: user.userName
 	} ).then( function( result, err ) {
 		res.redirect( '/users' );
 	} );
@@ -40,16 +40,50 @@ router.get( '/:id', function( req, res ) {
 
 	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
 		var user = result;
-		res.render( 'index', {
+		// eval( locus )
+		res.render( 'show', {
 			user: user
 		} );
 	} );
 } );
 
+
 ///update users///
 router.post( '/:id', function( req, res ) {
 	var userId = req.params.id;
 	var user = req.body;
+	knex( 'users' ).where( 'id', userId ).first().update( {
+
+		name: user.name,
+		userName: user.userName
+	}, 'id' ).then( function( result, err ) {
+		res.redirect( 'users' );
+		// eval( locus );
+
+	} );
+} );
+
+
+
+//edit
+router.get( '/:id/edit', function( req, res ) {
+	var userId = req.params.id;
+
+	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
+		var user = result;
+		// console.log( user );
+		res.render( '/show', {
+			user: user
+		} );
+
+	} );
+} );
+
+router.post( '/:id/edit', function( req, res ) {
+	var userId = req.params.id;
+	var user = req.body;
+	// eval( locus );
+
 	knex( 'users' ).where( 'id', userId ).first().update( {
 		name: user.name,
 		userName: user.nickname
@@ -58,25 +92,13 @@ router.post( '/:id', function( req, res ) {
 	} );
 } );
 
-//edit
-router.get( '/:id/edit', function( req, res ) {
-	var userId = req.params.id;
-
-	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
-		var user = result;
-		console.log( user );
-		res.render( '/users/edit', {
-			user: user
-		} );
-	} );
-} );
-
 
 //delete
 router.get( '/:id', function( req, res ) {
 	var userId = req.params.id;
 	knex( 'users' ).where( 'id', userId ).then( function( result ) {
-		res.render( 'delete', {
+
+		res.render( '/users/delete', {
 			user: user
 		} );
 	} );
@@ -87,6 +109,8 @@ router.delete( '/:id', function( req, res ) {
 	knex( 'users' ).where( 'id', userId ).del().then( function( result ) {
 		var user = result;
 		res.redirect( '/users' );
+		// eval( locus );
+
 	} );
 } );
 

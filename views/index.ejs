@@ -10,14 +10,27 @@
     <h1>Welcome</h1>
 
 
-            <h3>Name: <%= user.name %> </h3>
-            <h3>UserName: <%= user.userName %> </h3>
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>userName</th>
 
-            <form action="/users/<%=user.id%>?_method=DELETE" method = "POST">
-              <input type="submit" class="btn btn-success" value="Delete">
+      </thead>
+      <tbody>
+        <tr>
+          <% user.forEach(function(user){ %>
 
-            
+          <td><a href="/users/<%=user.id%>"><%= user.name %>   </td>
+          <td> <%= user.userName %>  </td>
 
+
+
+        </tr>
+        <% }) %>
+
+
+    </tbody>
+  </table>
 
   </body>
 </html>
