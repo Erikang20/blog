@@ -23,8 +23,8 @@ var usersRoute = require( './routes/users' );
 app.use( '/users', usersRoute );
 
 
-
-app.listen( 3000, function() {
+var port = process.env.PORT || 3000;
+app.listen( port, function() {
 	console.log( "Im listening" );
 } );
 
