@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <header class="show page-header">
+      <h1>Your profile</h1>
+    </header>
+
+    <div class="profile thumbnail">
 
         <h3>Name: <%= user.name %> </h3>
         <h3>UserName: <%= user.userName %> </h3>
@@ -16,6 +21,8 @@
         <form action="/users/<%=user.id%>?_method=DELETE" method = "POST">
           <input type="submit" class="btn btn-success" value="Delete">
          </form>
+       </div>
+
 
   </body>
 </html>

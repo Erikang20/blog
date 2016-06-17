@@ -1,4 +1,27 @@
+/*main section*/
+
+.homePage {
+    color: white;
+    padding: 15px;
+}
+
 #home {
     padding: 30px;
     margin: 20px;
+}
+
+
+/*new User section*/
+
+.newUser {
+    padding: 20px;
+}
+
+.form {
+    padding: 40px;
+}
+
+.profile, .show {
+    padding: 40px;
+    margin: 40px;
 }
