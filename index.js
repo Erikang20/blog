@@ -6,6 +6,7 @@ var express = require( 'express' ),
 
 
 require( 'locus' );
+require( 'dotenv' ).config();
 
 
 app.set( 'view engine', 'ejs' );
