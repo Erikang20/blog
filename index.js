@@ -5,7 +5,7 @@ var express = require( 'express' ),
 	bodyParser = require( 'body-parser' );
 
 
-require( 'locus' );
+// require( 'locus' );
 require( 'dotenv' ).config();
 
 
