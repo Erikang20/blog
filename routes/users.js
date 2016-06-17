@@ -1,7 +1,7 @@
 var express = require( 'express' );
 var router = express.Router();
 var knex = require( '../db/knex' );
-var methodOverride = require( 'method-override' );
+// var methodOverride = require( 'method-override' );
 
 
 ////show homepage
