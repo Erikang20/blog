@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Users</title>
+  </head>
+  <body>
+
+
+        <h3>Name: <%= user.name %> </h3>
+        <h3>UserName: <%= user.userName %> </h3>
+
+        <form action="/users/<%=user.id%>?_method=DELETE" method = "POST">
+          <input type="submit" class="btn btn-success" value="Delete">
+         </form>
+
+  </body>
+</html>
