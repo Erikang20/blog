@@ -72,7 +72,7 @@ router.get( '/:id/edit', function( req, res ) {
 	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
 		var user = result;
 		// console.log( user );
-		res.render( '/show', {
+		res.render( 'show', {
 			user: user
 		} );
 
