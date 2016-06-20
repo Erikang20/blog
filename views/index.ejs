@@ -22,6 +22,8 @@
       <thead>
         <th>Name</th>
         <th>userName</th>
+        <th>Edit</th>
+
 
       </thead>
       <tbody>
@@ -30,6 +32,8 @@
 
           <td><a href="/users/<%=user.id%>"><%= user.name %>   </td>
           <td> <%= user.userName %>  </td>
+          <td> <a href="/<%= user.id %>/edit">Edit</a>  </td>
+
 
         </tr>
         <% }) %>

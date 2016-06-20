@@ -68,27 +68,22 @@ router.post( '/:id', function( req, res ) {
 //edit
 router.get( '/:id/edit', function( req, res ) {
 	var userId = req.params.id;
-
-	knex( 'users' ).where( 'id', userId ).first().then( function( result, err ) {
-		var user = result;
-		// console.log( user );
-		res.render( 'show', {
-			user: user
+	knex( 'users' ).where( 'id', userId ).select().then( function( result, err ) {
+		// var user = result;
+		res.render( 'edit', {
+			user: result[ 0 ]
 		} );
-
 	} );
 } );
 
 router.post( '/:id/edit', function( req, res ) {
 	var userId = req.params.id;
 	var user = req.body;
-	// eval( locus );
-
 	knex( 'users' ).where( 'id', userId ).first().update( {
 		name: user.name,
 		userName: user.nickname
-	}, 'id' ).then( function( result, err ) {
-		res.redirect( 'users' );
+	} ).then( function( result ) {
+		res.redirect( '/edit' );
 	} );
 } );
 
