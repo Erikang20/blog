@@ -82,7 +82,7 @@ router.post( '/:id', function( req, res ) {
 		name: user.name,
 		userName: user.userName
 	} ).then( function( result ) {
-		res.redirect( 'edit' );
+		res.redirect( '/users' );
 	} );
 } );
 

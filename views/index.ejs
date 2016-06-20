@@ -32,8 +32,7 @@
 
           <td><a href="/users/<%=user.id%>"><%= user.name %>   </td>
           <td> <%= user.userName %>  </td>
-          <td> <a href="<%= user.id %>/edit">Edit</a>  </td>
-
+          <td> <a href="users/<%= user.id %>/edit">Edit</a>  </td>
 
         </tr>
         <% }) %>
@@ -46,4 +45,6 @@
   </form>
 
   </body>
+  <%# // if we dont include the '/' in the edit link it will link with the current page and take you to the edit page%>
+
 </html>
